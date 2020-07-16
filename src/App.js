@@ -1,14 +1,17 @@
-import React, {useEffect} from 'react';
-
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { modalSlice } from "./redux/slices";
+import { Modal } from "./components/Modal";
 
 function App() {
-
-  useEffect(() => {
-
-  }, [])
+  const dispatch = useDispatch();
+  const modalShown = useSelector((state) => state.shown);
 
   return (
-  <div>geas</div>
+    <>
+      {modalShown && <Modal />}
+      <div onClick={() => dispatch(modalSlice.actions.show())}>geas</div>
+    </>
   );
 }
 
