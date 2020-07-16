@@ -1,16 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import style from "./Modal.module.css";
-import { modalSlice } from "../redux/slices";
+import ReactDOM from "react-dom";
+import { ModalContainer } from "./ModalContainer";
 
 export const Modal = (props) => {
-  const dispatch = useDispatch();
-  return (
-    <div
-      onClick={() => dispatch(modalSlice.actions.show())}
-      className={style.container}
-    >
-      hello
-    </div>
+  return ReactDOM.createPortal(
+    <ModalContainer>{props.children}</ModalContainer>,
+    document.getElementById("modalRoot")
   );
 };
