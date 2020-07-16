@@ -2,12 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const modalSlice = createSlice({
   name: "modal",
-  initialState: { shown: false },
+  initialState: false,
   reducers: {
-    show: (state) => {
-      return { shown: !state.shown };
-    },
+    show: (state) => !state,
   },
 });
 
-console.log(modalSlice.actions);
+export const modalTextSlice = createSlice({
+  name: "modalText",
+  initialState: "Default text lorem ipsum",
+  reducers: {
+    modalText: (state, action) => {
+      return action.payload;
+    },
+  },
+});

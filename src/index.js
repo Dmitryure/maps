@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
-import { modalSlice } from "./redux/slices";
+import { modalSlice, modalTextSlice } from "./redux/slices";
 import { Provider } from "react-redux";
 
-const store = configureStore(modalSlice);
+const store = configureStore({
+  reducer: { show: modalSlice.reducer, modalText: modalTextSlice.reducer },
+});
 
 ReactDOM.render(
   <React.StrictMode>
