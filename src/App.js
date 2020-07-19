@@ -1,24 +1,23 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { modalSlice } from "./redux/slices";
+import { useSelector } from "react-redux";
 import { Modal } from "./components/Modal";
-import { CoolComponent } from "./components/CoolComponent";
+import { LoginModal } from "./components/LoginModal";
+import { SomeModal } from "./components/SomeModal";
+import { Navbar } from "./components/Navbar";
+
+const componentsMap = {
+  login: LoginModal,
+  somemodal: SomeModal,
+};
 
 function App() {
-  const dispatch = useDispatch();
-  const modalShown = useSelector((state) => state.show);
-  const modalText = useSelector((state) => state.modalText);
+  const modalState = useSelector((state) => state.show);
+  const CurrentModal = componentsMap[modalState];
 
   return (
     <>
-      {
-        <Modal>
-          <div>{modalText}</div>
-        </Modal>
-      }
-
-      <div onClick={() => dispatch(modalSlice.actions.show())}>geas</div>
-      <CoolComponent />
+      {<Modal>{modalState && <CurrentModal />}</Modal>}
+      <Navbar />
     </>
   );
 }

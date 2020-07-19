@@ -4,7 +4,9 @@ export const modalSlice = createSlice({
   name: "modal",
   initialState: false,
   reducers: {
-    show: (state) => !state,
+    show: (state, { payload }) => {
+      return payload;
+    },
   },
 });
 

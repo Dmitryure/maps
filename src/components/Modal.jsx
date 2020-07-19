@@ -21,7 +21,7 @@ export const Modal = (props) => {
             <animated.div
               key={key}
               onClick={() => {
-                dispatch(modalSlice.actions.show());
+                dispatch(modalSlice.actions.show(false));
               }}
               className={style.container}
               style={springProps}
