@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      {<Modal>{modalState && <CurrentModal />}</Modal>}
+      {<Modal current={modalState}>{modalState && <CurrentModal />}</Modal>}
       <Navbar />
     </>
   );

@@ -5,6 +5,8 @@ import { modalSlice } from "../redux/slices";
 export const Navbar = (props) => {
   const dispatch = useDispatch();
 
+  //fix double click
+
   return (
     <div>
       <button onClick={() => dispatch(modalSlice.actions.show("login"))}>

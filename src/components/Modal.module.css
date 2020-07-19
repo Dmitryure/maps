@@ -1,8 +1,26 @@
-.container {
+.modal {
   top: 0;
   left: 0;
   width: 125%;
   height: 125%;
   position: fixed;
   background-color: hotpink;
+  z-index: 90;
+}
+
+.content {
+  z-index: 100;
+  width: 50%;
+  height: 30%;
+  background-color: dodgerblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
